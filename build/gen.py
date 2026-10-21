@@ -349,9 +349,12 @@ def publikasjoner(rest, en):
         kort.append(f'<article class="pub"><div><h2>{tittel}</h2><p>{tekst}</p><div class="pub-lenker">{ll}</div></div><img loading="lazy" src="{bilde}" alt="{html.escape(re.sub("<[^>]+>", "", tittel))}"></article>')
     mmi_tekst = ('MMI, or Model Maturity Index (Norwegian: Modell Modenhets Indeks), describes the maturity of the objects in building models using agreed numerical codes. MMI is primarily a methodology for communication and management processes in the project phase and operational phase of a building.' if en else
                  'MMI, eller Modell Modenhets Indeks (eng. Model Maturity Index), beskriver modningsgraden av objektene i byggverksmodeller gjennom bruk av omforente tallkoder. MMI er først og fremst en metodikk for kommunikasjon og styringsprosesser i byggverkets prosjektfase og driftsfase.')
+    last = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M4 19h16"/></svg>'
     pil = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg>'
     mmi = (f'<article class="pub"><div><h2>MMI-veilederen 2.0</h2><p>{mmi_tekst}</p><div class="pub-lenker">'
-           f'<a class="last" href="https://www.mmi-veilederen.no/" target="_blank" rel="noopener">{"Go to the MMI guide" if en else "Gå til MMI-veilederen"} {pil}</a></div></div>'
+           f'<a class="last" href="https://www.mmi-veilederen.no/" target="_blank" rel="noopener">{"Go to the MMI guide" if en else "Gå til MMI-veilederen"} {pil}</a>'
+           f'<a class="last" href="https://6d7595cf-90a9-4a49-91c8-a35e27850f8d.usrfiles.com/ugd/fab2f5_2100a42a69334b7fbb981156cf498632.pdf" target="_blank" rel="noopener">{"Download (Norwegian)" if en else "Last ned"} {last}</a>'
+           f'<a class="last" href="https://6d7595cf-90a9-4a49-91c8-a35e27850f8d.usrfiles.com/ugd/fab2f5_ade2057737374a80b34e25b481c0fd7b.pdf" target="_blank" rel="noopener">Download English version here {last}</a></div></div>'
            f'<a href="https://www.mmi-veilederen.no/" target="_blank" rel="noopener"><img loading="lazy" src="https://static.wixstatic.com/media/fab2f5_08c864f8e065452a9c0129b85d0e066a~mv2.png" alt="MMI-veilederen 2.0"></a></article>')
     kort.insert(1, mmi)
     return intro + ''.join(kort)
