@@ -231,13 +231,12 @@ a.kort:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,7,27,.08);
 @media (max-width:1060px){
   .burger{display:block}
   .meny,.hoyre .knapp{display:none}
-  .topp.mobil{position:fixed;top:0;left:0;right:0;bottom:0;height:100vh;height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff;z-index:100}
-  .topp.mobil .wrap{flex-wrap:wrap;height:auto;min-height:72px;align-content:flex-start}
+  .topp.mobil{position:relative;backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
+  .topp.mobil .wrap{flex-wrap:wrap;height:auto;min-height:72px}
   .topp.mobil .logo{height:72px;display:flex;align-items:center}
   .topp.mobil .hoyre{height:72px;margin-left:auto}
-  .topp.mobil .meny{display:flex;flex-direction:column;align-items:stretch;position:static;order:3;flex:0 0 100%;background:#fff;padding:12px 0 140px;border-top:1px solid var(--linje);gap:0;margin:0}
+  .topp.mobil .meny{display:flex;flex-direction:column;align-items:stretch;position:static;order:3;flex:0 0 100%;background:#fff;padding:12px 0 24px;border-top:1px solid var(--linje);gap:0;margin:0}
   .topp.mobil .under,.topp.mobil .under.bred{position:static;box-shadow:none;border:0;display:none;min-width:0;padding:0 0 0 8px;margin:0;max-height:none;overflow:visible}
-  html.meny-apen,html.meny-apen body{overflow:hidden}
   .topp.mobil li.apen>.under{display:block}
   .topp.mobil li.apen>.under.bred{display:block}
   .helt-kort{grid-template-columns:1fr;padding:32px 24px}

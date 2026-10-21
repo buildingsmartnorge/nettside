@@ -30,7 +30,7 @@
       }
     });
     var burger = topp.querySelector(".burger");
-    if (burger) burger.addEventListener("click", function (e) { e.stopPropagation(); var apen = topp.classList.toggle("mobil"); document.documentElement.classList.toggle("meny-apen", apen); });
+    if (burger) burger.addEventListener("click", function (e) { e.stopPropagation(); var apen = topp.classList.toggle("mobil"); if (apen) window.scrollTo(0, 0); });
     topp.querySelector(".meny").addEventListener("click", function (e) { if (topp.classList.contains("mobil")) e.stopPropagation(); });
     var sprak = topp.querySelector(".sprak");
     if (sprak) sprak.querySelector("button").addEventListener("click", function (e) { e.stopPropagation(); sprak.classList.toggle("apen"); });

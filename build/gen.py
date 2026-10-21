@@ -2,6 +2,8 @@
 Kjør: python3 build/gen.py  (fra mappen bsn/). Resultat i site/."""
 import json, re, os, shutil, html, urllib.parse
 
+import subprocess, time
+VERSJON = str(int(time.time()))
 ROT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROT)
 D = json.load(open('kilde/pages_all.json'))
@@ -162,7 +164,7 @@ def side(tittel, beskrivelse, body, en, framer_no, ekstra_head=''):
 <link rel="icon" href="https://static.wixstatic.com/media/fab2f5_3e92e232dfee410a8e5461b650eab47a~mv2.png/v1/fit/w_64,h_64/ikon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/stil.css">
+<link rel="stylesheet" href="/assets/stil.css?v={VERSJON}">
 {ekstra_head}</head>
 <body>
 {nav_html(en, framer_no)}
@@ -170,7 +172,7 @@ def side(tittel, beskrivelse, body, en, framer_no, ekstra_head=''):
 {body}
 </main>
 {bunn_html(en)}
-<script src="/assets/bsn.js" defer></script>
+<script src="/assets/bsn.js?v={VERSJON}" defer></script>
 {ROLLEVEILEDER}
 </body>
 </html>
