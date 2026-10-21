@@ -92,7 +92,7 @@ NAV = [
         ('BIMpraten', 'BIMpraten podcast', '/fagnettverk/bimpraten', 'grp'),
         ('Ressurser', 'Resources', '/fagnettverk/ressurser', 'grp')]),
     ('Hva skjer', "What's on", [
-        ('Kalender', 'Calendar', '/arrangementer'), ('Nyheter', 'News', '/nyheter'), ('bSNK', 'bSNK', 'https://bsnk.no')]),
+        ('Kalender', 'Calendar', '/arrangementer'), ('Nyheter', 'News', '/nyheter'), ('bSNK-konferansen', 'bSNK conference', '/bsnk')]),
 ]
 
 def nav_html(en, framer_no):
@@ -107,7 +107,7 @@ def nav_html(en, framer_no):
             lenker.append(f'<li><a{kl} href="{href}">{html.escape(tekst)}</a></li>')
         li.append(f'<li><button aria-expanded="false">{eng if en else no}</button><ul class="under{bred}">{"".join(lenker)}</ul></li>')
         if i == 1:
-            li.append(f'<li><a href="https://www.bsnk.no/" title="buildingSMART Norge Kompetanse"><img src="{BSNK}" alt="bSNK"></a></li>')
+            li.append(f'<li><a href="{url("/bsnk", en)}" title="buildingSMART Norge-konferansen"><img src="{BSNK}" alt="bSNK"></a></li>')
             li.append(f'<li><a href="{url("/pofin", en)}" title="POFIN"><img src="{POFINLOGO}" alt="POFIN"></a></li>')
     annen = url(framer_no, not en)
     return f'''<header class="topp"><div class="wrap">
@@ -578,7 +578,10 @@ def main():
             framer_no, tittel, besk, body = generell(framer, h, en)
         doc = side(f'{tittel} – buildingSMART Norge', besk, body, en, framer_no)
         skriv(fil(framer_no, en), doc); filer.append(fil(framer_no, en))
+    import sys; sys.path.insert(0, os.path.join(ROT, 'build')); import bsnk
     for en in (False, True):
+        skriv(fil('/bsnk', en), side('bSNK – buildingSMART Norge-konferansen', 'buildingSMART Norge-konferansen (bSNK) er den årlige fagkonferansen til buildingSMART Norge.', bsnk.lag(IMG, WS, en), en, '/bsnk'))
+        filer.append(fil('/bsnk', en))
         skriv(fil('/nyheter/innlegg', en), side('Nyheter – buildingSMART Norge', '', innlegg(en), en, '/nyheter'))
         filer.append(fil('/nyheter/innlegg', en))
     print(len(filer), 'sider')
