@@ -1,0 +1,736 @@
+{
+ "domener": [
+  {
+   "navn": "Produktdomene",
+   "slug": "produktdomene",
+   "ingress": "Produktdomenet arbeider for bedre dataflyt og sporbarhet i et livsløpsperspektiv – fra bestilling til ombruk/gjenvinning. Åpne, digitale standarder er grunnlaget for mer effektiv informasjonsflyt og verdiskaping i hele verdikjeden.",
+   "passerFor": [
+    "BIM-leder",
+    "Prosjekterende rådgiver",
+    "Byggherre",
+    "Drifts- og forvaltningsansvarlig",
+    "BIM-koordinator",
+    "Infrastrukturprosjekterende",
+    "Prosjekteringsleder"
+   ],
+   "leder": "Knut Jøssang",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_2f2b1a80073c4f4bb2d3d87c9375ba04~mv2.jpg",
+   "lederLinkedin": "",
+   "epost": "produkt@buildingsmart.no",
+   "mailmojoTag": "produktdomene",
+   "rekkefolge": 1,
+   "navnEn": "Product domain",
+   "ingressEn": "The product domain works for better data flow and traceability from a lifecycle perspective – from ordering to reuse/recycling. Open, digital standards are the basis for more efficient information flow and value creation across the entire value chain.",
+   "passerForEn": [
+    "BIM leader",
+    "Design consultant",
+    "Builder",
+    "Drift and management",
+    "BIM coordinator",
+    "Infrastructure projects",
+    "Project leader"
+   ]
+  },
+  {
+   "navn": "Teknisk domene",
+   "slug": "teknisk-domene",
+   "ingress": "I Teknisk domene jobber vi med bruk og videreutvikling av åpne standarder og digital informasjonsflyt, inkludert IFC og andre relevante standarder.",
+   "passerFor": [
+    "BIM-leder",
+    "BIM-koordinator",
+    "Geomatikk og stikning",
+    "Infrastrukturprosjekterende",
+    "Digital samhandlingsleder",
+    "Prosjekterende rådgiver",
+    "Prosjekteringsleder"
+   ],
+   "leder": "Jan Erik Hoel",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_0068a289b8fb46f5bdb2111ebd9e772c~mv2.png",
+   "lederLinkedin": "",
+   "epost": "",
+   "mailmojoTag": "teknisk domene",
+   "rekkefolge": 2,
+   "navnEn": "Technical domain",
+   "ingressEn": "In the Technical domain, we work with the use and further development of open standards and digital information flow, including IFC and other relevant standards.",
+   "passerForEn": [
+    "BIM leader",
+    "BIM coordinator",
+    "Geomatikk og stikning",
+    "Infrastructure projects",
+    "Digital samhandlingsleder",
+    "Design consultant",
+    "Project leader"
+   ]
+  },
+  {
+   "navn": "Bærekraftdomene",
+   "slug": "baerekraft-domene",
+   "ingress": "Bærekraftdomenet samler fagmiljøer for å se hvordan digital samhandling og åpne standarder kan bidra til bærekraft gjennom hele byggets livsløp.",
+   "passerFor": [
+    "Rådgiver",
+    "Prosjektleder"
+   ],
+   "leder": "Maria Volpe",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_a44072adf40e40aa8ca762bf4bf9ef92~mv2.jpg",
+   "lederLinkedin": "https://www.linkedin.com/in/maria-volpe-%F0%9F%8D%83-874b8ab4/",
+   "epost": "",
+   "mailmojoTag": "bærekraftdomene",
+   "rekkefolge": 3,
+   "navnEn": "Sustainability domain",
+   "ingressEn": "The Sustainability Domain brings together professional environments to see how digital collaboration and open standards can contribute to sustainability throughout the entire life cycle of a building.",
+   "passerForEn": [
+    "Advisor",
+    "Prosjektleder"
+   ]
+  },
+  {
+   "navn": "Juridisk domene",
+   "slug": "juridisk-domene",
+   "ingress": "Juridisk domene tar opp juridiske spørsmål knyttet til åpenBIM og deling av informasjon, og gir en arena for erfaringsutveksling og veiledning.",
+   "passerFor": [
+    "Jurist",
+    "Prosjekteringsleder",
+    "Byggherre",
+    "Kategoriansvarlig"
+   ],
+   "leder": "Astrid Stenersen",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_30b4c7f019aa4d8b985e4f3ae890101a~mv2.png",
+   "lederLinkedin": "https://www.linkedin.com/in/astrid-stenersen-8305a3113/",
+   "epost": "",
+   "mailmojoTag": "juridisk domene",
+   "rekkefolge": 4,
+   "navnEn": "Legal domain",
+   "ingressEn": "The legal domain addresses legal issues related to openBIM and information sharing, and provides a platform for experience exchange and guidance.",
+   "passerForEn": [
+    "Jurist",
+    "Prosjekteringsleder",
+    "Byggherre",
+    "Kategoriansvarlig"
+   ]
+  },
+  {
+   "navn": "Infrastrukturdomene",
+   "slug": "infradomene",
+   "ingress": "Infradomene er en møteplass for aktører som utvikler løsninger for planlegging, bygging og drift av infrastruktur i Norge – veg, jernbane og fagområder som vann og avløp.",
+   "passerFor": [
+    "BIM-koordinator",
+    "Prosjekteringsleder",
+    "Geotekniker",
+    "Forvaltere"
+   ],
+   "leder": "Øystein Lystad",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_0a40f848e399440085c4a566a5b3a23f~mv2.png",
+   "lederLinkedin": "https://www.linkedin.com/in/%C3%B8ystein-lystad-14965678/",
+   "epost": "",
+   "mailmojoTag": "infradomene",
+   "rekkefolge": 5,
+   "navnEn": "Infrastructure domain",
+   "ingressEn": "The Infradomene is a meeting place for actors developing solutions for planning, construction, and operation of infrastructure in Norway – roads, railways, and fields such as water and drainage.",
+   "passerForEn": [
+    "BIM-koordinator",
+    "Prosjekteringsleder",
+    "Geotekniker",
+    "Forvaltere"
+   ]
+  },
+  {
+   "navn": "Byggherre og Eierdomene",
+   "slug": "byggherre-og-eierdomene",
+   "ingress": "Gruppen koordinerer utviklingsarbeid, deler erfaringer og etablerer felles utviklingsprosjekter, også på tvers av grupper og eksterne miljøer. Store offentlige og private byggherrer deltar i BED.",
+   "passerFor": [
+    "Byggherre",
+    "BIM-koordinator",
+    "Arkitekt",
+    "Kontraktsansvarlig",
+    "Drifts- og forvaltningsansvarlig",
+    "Prosjekteringsleder",
+    "Prosjektleder"
+   ],
+   "leder": "Thomas Andersen",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_afe0ee5fff464603b0da94b15267b36a~mv2.jpg",
+   "lederLinkedin": "https://www.linkedin.com/in/thomas-andersen-b14577169/",
+   "epost": "",
+   "mailmojoTag": "byggherre og eierdomene",
+   "rekkefolge": 6,
+   "navnEn": "Builder and Property Owner",
+   "ingressEn": "The group coordinates development work, shares experiences, and establishes common development projects, also across groups and external environments. Large public and private builders participate in BED.",
+   "passerForEn": [
+    "Builder",
+    "BIM-koordinator",
+    "Arkitekt",
+    "Kontraktsansvarlig",
+    "Drift and management",
+    "Project leader",
+    "Prosjektleder"
+   ]
+  },
+  {
+   "navn": "Endringsledelse domene",
+   "slug": "endringsledelsesdomene",
+   "ingress": "Endringsledelsesdomenet er et samarbeid med Prosjekt Norge om å styrke implementeringen av digitale løsninger i bygg- og anleggsnæringen.",
+   "passerFor": [
+    "Prosjektledere",
+    "Fagansvarlige",
+    "Programvareutviklere"
+   ],
+   "leder": "Eilif Hjelseth",
+   "lederBilde": "https://static.wixstatic.com/media/fab2f5_346b6fa065274ccb9b9a11fd986f9699~mv2.png",
+   "lederLinkedin": "https://www.linkedin.com/in/hjelseth/",
+   "epost": "",
+   "mailmojoTag": "endringsledelsesdomene",
+   "rekkefolge": 7,
+   "navnEn": "Change management domain",
+   "ingressEn": "The change management domain is a collaboration with Project Norway to strengthen the implementation of digital solutions in the construction industry.",
+   "passerForEn": [
+    "Prosjektledere",
+    "Fagansvarlige",
+    "Programvareutviklere"
+   ]
+  }
+ ],
+ "medlemmer": [
+  {
+   "navn": "Advokatfirmaet Selmer",
+   "rekkefolge": 1
+  },
+  {
+   "navn": "Agder Fylkeskommune",
+   "rekkefolge": 2
+  },
+  {
+   "navn": "Arkitektbedriftene i Norge",
+   "rekkefolge": 3
+  },
+  {
+   "navn": "Asplan Viak",
+   "rekkefolge": 4
+  },
+  {
+   "navn": "Avinor",
+   "rekkefolge": 5
+  },
+  {
+   "navn": "Bane NOR",
+   "rekkefolge": 6
+  },
+  {
+   "navn": "Basal",
+   "rekkefolge": 7
+  },
+  {
+   "navn": "BIM Voice",
+   "rekkefolge": 8
+  },
+  {
+   "navn": "Bjørn Jørgensen",
+   "rekkefolge": 9
+  },
+  {
+   "navn": "Boligmappa",
+   "rekkefolge": 10
+  },
+  {
+   "navn": "Boligprodusentenes Forening",
+   "rekkefolge": 11
+  },
+  {
+   "navn": "Byggevareindustrien",
+   "rekkefolge": 12
+  },
+  {
+   "navn": "C3 BIM",
+   "rekkefolge": 13
+  },
+  {
+   "navn": "CCCC",
+   "rekkefolge": 14
+  },
+  {
+   "navn": "COWI",
+   "rekkefolge": 15
+  },
+  {
+   "navn": "Dalux",
+   "rekkefolge": 16
+  },
+  {
+   "navn": "Diakonhjemmet sykehus AS",
+   "rekkefolge": 17
+  },
+  {
+   "navn": "DiBK - Direktoratet for byggkvalitet",
+   "rekkefolge": 18
+  },
+  {
+   "navn": "DIGIBIM",
+   "rekkefolge": 19
+  },
+  {
+   "navn": "dRofus",
+   "rekkefolge": 20
+  },
+  {
+   "navn": "EBA",
+   "rekkefolge": 21
+  },
+  {
+   "navn": "EDR & Medeso",
+   "rekkefolge": 22
+  },
+  {
+   "navn": "EFO - Elektroforeningen",
+   "rekkefolge": 23
+  },
+  {
+   "navn": "Exact",
+   "rekkefolge": 24
+  },
+  {
+   "navn": "Fagskolen Innlandet",
+   "rekkefolge": 25
+  },
+  {
+   "navn": "Fagskolen Oslo Akershus",
+   "rekkefolge": 26
+  },
+  {
+   "navn": "Fagskolene i Nord",
+   "rekkefolge": 27
+  },
+  {
+   "navn": "Fagskulen Vestland",
+   "rekkefolge": 28
+  },
+  {
+   "navn": "Focus Software",
+   "rekkefolge": 29
+  },
+  {
+   "navn": "Forskningsparken / Oslotech AS",
+   "rekkefolge": 30
+  },
+  {
+   "navn": "Forsvarsbygg",
+   "rekkefolge": 31
+  },
+  {
+   "navn": "GK Norge",
+   "rekkefolge": 32
+  },
+  {
+   "navn": "Grethes Hus",
+   "rekkefolge": 33
+  },
+  {
+   "navn": "Heidelberg Materials",
+   "rekkefolge": 34
+  },
+  {
+   "navn": "Helse Sør-Øst RHF",
+   "rekkefolge": 35
+  },
+  {
+   "navn": "Høgskulen på Vestlandet",
+   "rekkefolge": 36
+  },
+  {
+   "navn": "IFE - Institutt for energiteknikk",
+   "rekkefolge": 37
+  },
+  {
+   "navn": "Infrakit",
+   "rekkefolge": 38
+  },
+  {
+   "navn": "Inovico",
+   "rekkefolge": 39
+  },
+  {
+   "navn": "Jotne EPM Technology",
+   "rekkefolge": 40
+  },
+  {
+   "navn": "Knowit",
+   "rekkefolge": 41
+  },
+  {
+   "navn": "Lachmus",
+   "rekkefolge": 42
+  },
+  {
+   "navn": "LINK arkitektur",
+   "rekkefolge": 43
+  },
+  {
+   "navn": "Maskinentreprenørenes Forbund",
+   "rekkefolge": 44
+  },
+  {
+   "navn": "Meto Pro",
+   "rekkefolge": 45
+  },
+  {
+   "navn": "MultiBIM",
+   "rekkefolge": 46
+  },
+  {
+   "navn": "Multiconsult Norge",
+   "rekkefolge": 47
+  },
+  {
+   "navn": "Møre og Romsdal Fylkeskommune",
+   "rekkefolge": 48
+  },
+  {
+   "navn": "Nelfo",
+   "rekkefolge": 49
+  },
+  {
+   "navn": "NESO",
+   "rekkefolge": 50
+  },
+  {
+   "navn": "Next One Technology",
+   "rekkefolge": 51
+  },
+  {
+   "navn": "Nittedal-eiendom",
+   "rekkefolge": 52
+  },
+  {
+   "navn": "NMBU",
+   "rekkefolge": 53
+  },
+  {
+   "navn": "Norconsult",
+   "rekkefolge": 54
+  },
+  {
+   "navn": "Nordic BIM Group",
+   "rekkefolge": 55
+  },
+  {
+   "navn": "Nordic Office of Architecture",
+   "rekkefolge": 56
+  },
+  {
+   "navn": "Norges miljø- og biovitenskapelige universitet",
+   "rekkefolge": 57
+  },
+  {
+   "navn": "Norsk Bygg- og Eiendomsforening (NBEF)",
+   "rekkefolge": 58
+  },
+  {
+   "navn": "Norsk Byggtjeneste (NOBB)",
+   "rekkefolge": 59
+  },
+  {
+   "navn": "Novorender",
+   "rekkefolge": 60
+  },
+  {
+   "navn": "NTI",
+   "rekkefolge": 61
+  },
+  {
+   "navn": "NTNU i Gjøvik",
+   "rekkefolge": 62
+  },
+  {
+   "navn": "NTNU i Ålesund",
+   "rekkefolge": 63
+  },
+  {
+   "navn": "NTNU, Institutt for bygg- og miljøteknikk",
+   "rekkefolge": 64
+  },
+  {
+   "navn": "Nye Veier",
+   "rekkefolge": 65
+  },
+  {
+   "navn": "Oslo Kommune - Vann- og avløpsetaten",
+   "rekkefolge": 66
+  },
+  {
+   "navn": "Oslo MET Storbyuniversitetet",
+   "rekkefolge": 67
+  },
+  {
+   "navn": "Oslobygg KF",
+   "rekkefolge": 68
+  },
+  {
+   "navn": "Pipelife Norge",
+   "rekkefolge": 69
+  },
+  {
+   "navn": "Rendra",
+   "rekkefolge": 70
+  },
+  {
+   "navn": "RIF - Rådgivende Ingeniørers Forening",
+   "rekkefolge": 71
+  },
+  {
+   "navn": "Semy",
+   "rekkefolge": 72
+  },
+  {
+   "navn": "SINTEF",
+   "rekkefolge": 73
+  },
+  {
+   "navn": "Skanska",
+   "rekkefolge": 74
+  },
+  {
+   "navn": "Skogli digital AS",
+   "rekkefolge": 75
+  },
+  {
+   "navn": "Sparkel AS",
+   "rekkefolge": 76
+  },
+  {
+   "navn": "Statens Vegvesen",
+   "rekkefolge": 77
+  },
+  {
+   "navn": "Statkraft",
+   "rekkefolge": 78
+  },
+  {
+   "navn": "Statnett",
+   "rekkefolge": 79
+  },
+  {
+   "navn": "Statsbygg",
+   "rekkefolge": 80
+  },
+  {
+   "navn": "StreamBIM",
+   "rekkefolge": 81
+  },
+  {
+   "navn": "SWECO Norge",
+   "rekkefolge": 82
+  },
+  {
+   "navn": "Sykehusbygg HF",
+   "rekkefolge": 83
+  },
+  {
+   "navn": "Symetri",
+   "rekkefolge": 84
+  },
+  {
+   "navn": "TAG Arkitekter",
+   "rekkefolge": 85
+  },
+  {
+   "navn": "TaskCtrl",
+   "rekkefolge": 86
+  },
+  {
+   "navn": "Tribia",
+   "rekkefolge": 87
+  },
+  {
+   "navn": "Trimble Solutions Sandvika",
+   "rekkefolge": 88
+  },
+  {
+   "navn": "Trøndelag fylkeskommune",
+   "rekkefolge": 89
+  },
+  {
+   "navn": "Universitetet i Agder",
+   "rekkefolge": 90
+  },
+  {
+   "navn": "Universitetet i Bergen",
+   "rekkefolge": 91
+  },
+  {
+   "navn": "Vedi Verde",
+   "rekkefolge": 92
+  },
+  {
+   "navn": "Vestland Fylkeskommune",
+   "rekkefolge": 93
+  },
+  {
+   "navn": "VVP - VA- og VVS produsentene",
+   "rekkefolge": 94
+  },
+  {
+   "navn": "VVS Norge AS",
+   "rekkefolge": 95
+  },
+  {
+   "navn": "Åsen & Øvrelid",
+   "rekkefolge": 96
+  }
+ ],
+ "logoer": [
+  {
+   "navn": "Pipelife",
+   "logo": "https://static.wixstatic.com/media/fab2f5_09b2df36a72f4334969e2daa5117c6f1~mv2.jpg",
+   "rekkefolge": 1
+  },
+  {
+   "navn": "Novorender",
+   "logo": "https://static.wixstatic.com/media/fab2f5_051ac34426764e87b1a5598ab32ccb29~mv2.png",
+   "rekkefolge": 2
+  },
+  {
+   "navn": "COWI",
+   "logo": "https://static.wixstatic.com/media/fab2f5_9e90f513410748a0b937aa00c4081bff~mv2.webp",
+   "rekkefolge": 3
+  },
+  {
+   "navn": "Interaxo",
+   "logo": "https://static.wixstatic.com/media/fab2f5_d99b6465c4664e04a58baa8739a7a1e4~mv2.webp",
+   "rekkefolge": 4
+  },
+  {
+   "navn": "OsloMet",
+   "logo": "https://static.wixstatic.com/media/fab2f5_f9a555f8084f4a08b3d659fecb8c70e9~mv2.png",
+   "rekkefolge": 5
+  },
+  {
+   "navn": "GK",
+   "logo": "https://static.wixstatic.com/media/fab2f5_b701b249b0c14e5f8d1f7424a740feea~mv2.png",
+   "rekkefolge": 6
+  },
+  {
+   "navn": "Dalux",
+   "logo": "https://static.wixstatic.com/media/fab2f5_cc76c7f133bf400ea1f634fb79b4aec8~mv2.png",
+   "rekkefolge": 7
+  },
+  {
+   "navn": "Asplan Viak",
+   "logo": "https://static.wixstatic.com/media/fab2f5_eddb64a6d8ab469cb11c822543a1e67f~mv2.png",
+   "rekkefolge": 8
+  },
+  {
+   "navn": "Maskinentreprenørenes Forbund",
+   "logo": "https://static.wixstatic.com/media/fab2f5_4a4f92f7bf814bc0a39ea7aaa2a9c84b~mv2.jpg",
+   "rekkefolge": 9
+  },
+  {
+   "navn": "Sykehusbygg",
+   "logo": "https://static.wixstatic.com/media/fab2f5_ac4409a3775d4b679bc8b4f42b62c9f2~mv2.webp",
+   "rekkefolge": 10
+  },
+  {
+   "navn": "NTNU",
+   "logo": "https://static.wixstatic.com/media/fab2f5_d502e3e6f4674c449b27d25720ceee75~mv2.png",
+   "rekkefolge": 11
+  },
+  {
+   "navn": "Standard Norge",
+   "logo": "https://static.wixstatic.com/media/fab2f5_edbd27af51ed4a24a35e62747a204782~mv2.png",
+   "rekkefolge": 12
+  },
+  {
+   "navn": "Trimble",
+   "logo": "https://static.wixstatic.com/media/fab2f5_e8358b517d844ee7b1c470581f9356cd~mv2.png",
+   "rekkefolge": 13
+  },
+  {
+   "navn": "Statens vegvesen",
+   "logo": "https://static.wixstatic.com/media/fab2f5_2535c7b0e3c74a968a9db1778a7a99c8~mv2.png",
+   "rekkefolge": 14
+  },
+  {
+   "navn": "Statnett",
+   "logo": "https://static.wixstatic.com/media/fab2f5_90540380a6b548db9052f93f9996718a~mv2.png",
+   "rekkefolge": 15
+  },
+  {
+   "navn": "Selmer",
+   "logo": "https://static.wixstatic.com/media/fab2f5_cc566b3939d64605bab81a0bc2d78c17~mv2.png",
+   "rekkefolge": 16
+  },
+  {
+   "navn": "Bane NOR",
+   "logo": "https://static.wixstatic.com/media/fab2f5_03e812c3c628484ea7ca86b058813b27~mv2.png",
+   "rekkefolge": 17
+  },
+  {
+   "navn": "Forsvarsbygg",
+   "logo": "https://static.wixstatic.com/media/fab2f5_7483eb8aa4354295b700c7bb3d7e89cf~mv2.png",
+   "rekkefolge": 18
+  },
+  {
+   "navn": "Oslo kommune",
+   "logo": "https://static.wixstatic.com/media/fab2f5_d2ed7b467d5843d180e5ed4630299f6c~mv2.png",
+   "rekkefolge": 19
+  },
+  {
+   "navn": "Heidelberg Materials",
+   "logo": "https://static.wixstatic.com/media/fab2f5_0245c67d240f451b8d156660e84c8eb6~mv2.png",
+   "rekkefolge": 20
+  },
+  {
+   "navn": "Statsbygg",
+   "logo": "https://static.wixstatic.com/media/fab2f5_3ae44e580af14e0696bcfc0b94b80832~mv2.png",
+   "rekkefolge": 21
+  },
+  {
+   "navn": "EBA",
+   "logo": "https://static.wixstatic.com/media/fab2f5_78367c53001b4a6d873261307de8b241~mv2.webp",
+   "rekkefolge": 22
+  },
+  {
+   "navn": "Skanska",
+   "logo": "https://static.wixstatic.com/media/fab2f5_3a550db0505b4e1d9c7a182015b845fa~mv2.png",
+   "rekkefolge": 23
+  },
+  {
+   "navn": "Avinor",
+   "logo": "https://static.wixstatic.com/media/fab2f5_807d141816294c66b50cffbe580d654e~mv2.png",
+   "rekkefolge": 24
+  },
+  {
+   "navn": "NTI",
+   "logo": "https://static.wixstatic.com/media/fab2f5_33b3da1f2dfd44ef861e846b18f4b5f5~mv2.png",
+   "rekkefolge": 25
+  },
+  {
+   "navn": "Multiconsult",
+   "logo": "https://static.wixstatic.com/media/fab2f5_5baa8b2f5c6342218093327c3df2cbe8~mv2.png",
+   "rekkefolge": 26
+  },
+  {
+   "navn": "Fagskolen Oslo",
+   "logo": "https://static.wixstatic.com/media/fab2f5_83856b9ee9854d68b48c6c0cefd3bdaf~mv2.png",
+   "rekkefolge": 27
+  }
+ ],
+ "arrangementer": [
+  {
+   "tittel": "Teknisk domenemøte",
+   "tittelEn": "Technical domain meeting",
+   "dato": "2026-10-15T10:00:00+02:00",
+   "tid": "10:00 - 11:30",
+   "bilde": "https://static.wixstatic.com/media/fab2f5_a1c94812b6b9445aa6fe1c047c749af1~mv2.png",
+   "pameldingslenke": "https://event.checkin.no/227891/test",
+   "domene": "teknisk-domene",
+   "visPaForsiden": true
+  },
+  {
+   "tittel": "Teknisk domenemøte",
+   "tittelEn": "Technical domain meeting",
+   "dato": "2026-12-08T10:00:00+01:00",
+   "tid": "10:00 - 11:30",
+   "bilde": "https://static.wixstatic.com/media/fab2f5_374055e6b44245609dd448f410fb7eb0~mv2.png",
+   "pameldingslenke": "",
+   "domene": "teknisk-domene",
+   "visPaForsiden": true
+  }
+ ]
+}
