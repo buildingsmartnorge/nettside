@@ -16,7 +16,9 @@ POFINSTOR = WS + IMG['blKOc2xBa5Hq3FT4JsdTU0Phlhg.png']
 HELT = WS + IMG['bLa7wqRp1CEUZDYIBjoE6RgSk.jpg']
 OG = WS + IMG['1dx4XoztHb4wpflcqCuw4j72t8.png']
 POFIN_ZIP = 'https://buildingsmartnorge.box.com/s/i4ew2sp5z1vcgkatkut4s86gcxmlfk1u'
-SKIP = {'/om-oss/hvagjorvi2', '/en/om-oss/hvagjorvi2', '/en/home-testing', '/home-testing'}
+# Avpublisert etter ønske (innholdet ligger fortsatt i kilde/ og kan tas inn igjen ved å fjerne linjene her)
+SKIP = {'/standarder/internasjonale-standarder', '/en/standards/international-standards',
+        '/om-oss/hvagjorvi2', '/en/om-oss/hvagjorvi2', '/en/home-testing', '/home-testing'}
 
 # ---------- stier ----------
 def translit(s):
@@ -69,7 +71,6 @@ NAV = [
     ('Standarder', 'Standards', [
         ('POFIN', 'POFIN', '/pofin'), ('Publikasjoner', 'Publications', '/standarder/publikasjoner-og-veiledninger'),
         ('Standardiseringsarbeid', 'Standardisation work', '/standarder/standardiseringsarbeid'),
-        ('Internasjonale standarder', 'International standards', '/standarder/internasjonale-standarder'),
         ('Kort forklart', 'Briefly explained', '/standarder/kort-forklart'), ('Høring', 'Consultation', '/standarder/h%C3%B8ring')]),
     ('Fagnettverk', 'Network', [
         ('Domener', 'Domains', '/fagnettverk/fagnettverket', 'grp'),
