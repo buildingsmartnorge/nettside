@@ -22,10 +22,9 @@ a:hover{color:var(--navy)}
 .meny{display:flex;align-items:center;gap:6px;margin:0 auto;list-style:none;padding:0}
 .meny>li{position:relative}
 .meny>li>a,.meny>li>button{font-family:var(--inter);font-weight:500;font-size:16px;letter-spacing:-.04em;color:var(--tekst);text-decoration:none;background:none;border:0;padding:10px 12px;cursor:pointer;display:flex;align-items:center;gap:4px;border-radius:8px}
-.meny>li>button:after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);margin-left:4px}
 .meny>li>a:hover,.meny>li>button:hover{background:var(--lys)}
 .meny img{height:22px;width:auto;display:block}
-.under{position:absolute;top:100%;left:0;min-width:240px;background:#fff;border:1px solid var(--linje);border-radius:14px;box-shadow:0 18px 40px rgba(6,7,27,.12);padding:10px;display:none;list-style:none;margin:6px 0 0}
+.under{position:absolute;top:100%;left:0;min-width:260px;max-height:calc(100vh - 90px);overflow-y:auto;background:#fff;border:1px solid var(--linje);border-radius:14px;box-shadow:0 18px 40px rgba(6,7,27,.12);padding:10px;display:none;list-style:none;margin:6px 0 0}
 .under.bred{min-width:520px;display:none;grid-template-columns:1fr 1fr;gap:0 12px}
 .meny>li.apen>.under{display:block}
 .meny>li.apen>.under.bred{display:grid}

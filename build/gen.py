@@ -95,7 +95,7 @@ NAV = [
 def nav_html(en, framer_no):
     li = []
     for i, (no, eng, items) in enumerate(NAV):
-        bred = ' bred' if len(items) > 8 else ''
+        bred = ''
         lenker = []
         for it in items:
             tekst = it[1] if en else it[0]
@@ -111,7 +111,7 @@ def nav_html(en, framer_no):
 <a class="logo" href="{url('/', en)}"><img src="{LOGO}" alt="buildingSMART Norge" width="178" height="40"></a>
 <ul class="meny">{''.join(li)}</ul>
 <div class="hoyre"><a class="knapp mork" href="{url('/bli-medlem', en)}">{'Become a member' if en else 'Bli medlem'}<span class="pil">→</span></a>
-<div class="sprak"><button aria-label="{'Language' if en else 'Språk'}">{'EN' if en else 'NO'} ▾</button><ul>
+<div class="sprak"><button aria-label="{'Language' if en else 'Språk'}">{'EN' if en else 'NO'}</button><ul>
 <li><a href="{url(framer_no, False)}" lang="no"{' aria-current="true"' if not en else ''}>Norsk</a></li>
 <li><a href="{url(framer_no, True)}" lang="en"{' aria-current="true"' if en else ''}>English</a></li></ul></div>
 <button class="burger" aria-label="Meny"><span></span><span></span><span></span></button></div>
