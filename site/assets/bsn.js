@@ -227,16 +227,21 @@
   document.querySelectorAll("[data-wix=domener]").forEach(function (el) {
     samling("Domener").then(function (rader) { el.innerHTML = rader.map(domenekort).join(""); }).catch(function (e) { feil(el, e); });
   });
-  document.querySelectorAll("[data-wix=domeneleder]").forEach(function (el) {
-    var slug = el.getAttribute("data-domene");
-    samling("Domener", null, { slug: { $eq: slug } }, 1).then(function (rader) {
-      var d = rader[0]; if (!d) { el.remove(); return; }
-      el.innerHTML = (d.lederBilde ? '<img src="' + bilde(d.lederBilde, 200, 200) + '" alt="">' : "") +
-        "<div><p style=\"color:var(--gra)\">" + T.leder + "</p><p><b>" + esc(d.leder) + "</b></p>" +
+  var lederEl = document.querySelector("[data-wix=domeneleder]"), tagEl = document.querySelector("[data-wix=domenetags]");
+  if (lederEl || tagEl) {
+    var dslug = (lederEl || tagEl).getAttribute("data-domene");
+    samling("Domener", null, { slug: { $eq: dslug } }, 1).then(function (rader) {
+      var d = rader[0];
+      if (!d) { if (lederEl) lederEl.remove(); if (tagEl) tagEl.remove(); return; }
+      var navn = EN && d.navnEn ? d.navnEn : d.navn;
+      var passer = (EN && d.passerForEn && d.passerForEn.length ? d.passerForEn : d.passerFor) || [];
+      if (tagEl) tagEl.innerHTML = passer.length ? "<h2>" + (EN ? "Especially suitable for you who are …" : "Passer spesielt for deg som er …") + '</h2><div class="tags">' + passer.map(function (p) { return "<span>" + esc(p) + "</span>"; }).join("") + "</div>" : "";
+      if (lederEl) lederEl.innerHTML = (d.lederBilde ? '<img src="' + bilde(d.lederBilde, 704, 880) + '" alt="' + esc(d.leder) + '">' : "") +
+        '<p class="rolle">' + (EN ? "Lead, " + esc(navn) : "Leder " + esc(navn)) + '</p><p class="navn">' + esc(d.leder) + "</p>" +
         (d.epost ? '<p><a href="mailto:' + esc(d.epost) + '">' + esc(d.epost) + "</a></p>" : "") +
-        (d.lederLinkedin ? '<p><a href="' + esc(d.lederLinkedin) + '" target="_blank" rel="noopener">LinkedIn</a></p>' : "") + "</div>";
-    }).catch(function () { el.remove(); });
-  });
+        (d.lederLinkedin ? '<p><a href="' + esc(d.lederLinkedin) + '" target="_blank" rel="noopener"><b>LinkedIn</b> ↗</a></p>' : "");
+    }).catch(function () { if (lederEl) lederEl.remove(); });
+  }
 
   // ---------- arrangementer ----------
   function arrkort(a) {

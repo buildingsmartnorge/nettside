@@ -275,12 +275,14 @@ def domeneside(framer, h, en):
     rest = re.split(r'<h2>(Kommende møter|Upcoming meetings|Upcoming events)</h2>', rest)[0]
     rest = re.sub(r'<img loading="lazy" src="[^"]+" alt="">(<p>[^<]*</p>){1,3}(<a [^>]*><p>Linkedin</p></a>|<p>Linkedin</p>)?\s*$', '', rest)
     tag, navn = DOMENE_TAG[slug]
-    body = f'''<section class="wrap sidetopp"><h1>{html.escape(tittel)}</h1></section>
-<section class="wrap innhold">{rest}
-<div class="lederkort" data-wix="domeneleder" data-domene="{slug}"><p class="laster">…</p></div>
-<h2>{'Upcoming meetings' if en else 'Kommende møter'}</h2>
+    body = f'''<section class="wrap sidetopp"><h1>{html.escape(tittel)}</h1>
+<div class="domenetags" data-wix="domenetags" data-domene="{slug}"></div></section>
+<section class="wrap domeneside"><div class="innhold">{rest}</div>
+<aside class="ledersokkel" data-wix="domeneleder" data-domene="{slug}"></aside></section>
+<section class="wrap innhold" style="padding-top:0">
+<div>{mailmojo_skjema(tag, ('Join ' if en else 'Meld deg inn i ') + navn, en)}</div>
+<h2 style="margin-top:56px">{'Upcoming meetings' if en else 'Kommende møter'}</h2>
 <div class="kort-rad" data-wix="arrangementer" data-domene="{slug}"><p class="laster">…</p></div>
-<div style="margin-top:48px">{mailmojo_skjema(tag, ('Join ' if en else 'Meld deg inn i ') + navn, en)}</div>
 </section>'''
     return framer_no, tittel, besk, body
 
@@ -310,8 +312,46 @@ def personkort(rest):
         ut.append(intro + (f'<div class="personer">{"".join(kort)}</div>' if kort else ''))
     return ''.join(ut)
 
+def kf_bokser(h):
+    i = h.find('<p>Oversikt</p>')
+    if i < 0: i = h.find('<p>Overview</p>')
+    if i < 0: return h
+    j = h.find('<h4>', i)
+    seg = h[i:j]
+    ut = []
+    grupper = re.split(r'<p>([^<]+)</p>(?=<a href)', seg)
+    # grupper: [forord, kat1, innhold1, kat2, innhold2, ...]
+    for k in range(1, len(grupper), 2):
+        kat, innh = grupper[k].strip(), grupper[k + 1]
+        bokser = []
+        for href, inner in re.findall(r'<a href="[^"#]*#([^"]+)">(.*?)</a>', innh):
+            deler = [html.unescape(x).strip() for x in re.findall(r'<p>(.*?)</p>', inner)]
+            hoved, under = '', ''
+            for d in deler:
+                if d.startswith('('): under = d.strip('() ')
+                elif hoved.endswith(('-', '/')): hoved += d
+                else: hoved = (hoved + ' ' + d).strip()
+            bokser.append(f'<a class="kf-boks" href="#{href}"><span>{html.escape(hoved)}</span>' + (f'<small>({html.escape(under)})</small>' if under else '') + '</a>')
+        bred = ' bred' if any(len(re.sub('<[^>]+>', '', b)) > 26 for b in bokser) else ''
+        ut.append(f'<h3 class="kf-gruppe">{html.escape(html.unescape(kat))}</h3><div class="kf-bokser{bred}">' + ''.join(bokser) + '</div>')
+    return h[:i] + '<div class="kf-oversikt">' + ''.join(ut) + '</div>' + h[j:]
+
+def publikasjoner(rest, en):
+    intro_slutt = rest.find('</p>') + 4
+    intro, resten = rest[:intro_slutt], rest[intro_slutt:]
+    kort = []
+    for m in re.finditer(r'<p>(.*?)</p><p>(.*?)</p><img loading="lazy" src="([^"]+)" alt="[^"]*">((?:<a href="[^"]+"[^>]*>(?:<p>.*?</p>)+</a>)*)', resten):
+        tittel, tekst, bilde, lenker = m.groups()
+        ll = ''.join(f'<a class="last" href="{a}" target="_blank" rel="noopener">{re.findall(r"<p>(.*?)</p>", inner)[0]} <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M4 19h16"/></svg></a>' for a, inner in re.findall(r'<a href="([^"]+)"[^>]*>((?:<p>.*?</p>)+)</a>', lenker))
+        kort.append(f'<article class="pub"><div><h2>{tittel}</h2><p>{tekst}</p><div class="pub-lenker">{ll}</div></div><img loading="lazy" src="{bilde}" alt="{html.escape(re.sub("<[^>]+>", "", tittel))}"></article>')
+    return intro + ''.join(kort)
+
 def generell(framer, h, en):
+    if no_sti(framer) == '/standarder/kort-forklart': h = kf_bokser(h)
     framer_no, tittel, besk, rest = innholdsside(framer, h, en)
+    if framer_no == '/standarder/publikasjoner-og-veiledninger':
+        body = f'<section class="wrap sidetopp"><h1>{html.escape(tittel)}</h1></section>\n<section class="wrap innhold bred">{publikasjoner(rest, en)}</section>'
+        return framer_no, tittel, besk, body
     if framer_no == '/pofin': tittel = 'POFIN'
     bred = ''
     if framer_no == '/om-oss/kontakt':

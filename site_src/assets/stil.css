@@ -145,6 +145,38 @@ a.kort:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,7,27,.08);
 .yt:before{content:"";position:absolute;left:50%;top:50%;margin:-10px 0 0 -6px;border-left:20px solid #fff;border-top:11px solid transparent;border-bottom:11px solid transparent;z-index:2}
 .yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;margin:0}
 
+/* ---------- domenesider ---------- */
+.domenetags{margin:8px 0 8px}
+.domenetags h2{font-size:23px;font-weight:500;letter-spacing:-.02em;margin:0 0 12px}
+.domenetags .tags{display:flex;flex-wrap:wrap;gap:10px}
+.domenetags span{display:inline-flex;align-items:center;height:36px;padding:0 16px;border:1px solid var(--bla);border-radius:35px;background:#fff;font-size:16px;font-weight:300;color:#000}
+.domeneside{display:grid;grid-template-columns:minmax(0,1fr) 352px;gap:56px;align-items:start;padding-top:28px}
+.domeneside .innhold{padding-bottom:40px}
+.ledersokkel{text-align:center;position:sticky;top:96px}
+.ledersokkel img{width:352px;height:440px;max-width:100%;object-fit:cover;border-radius:150px;display:block;margin:0 0 16px}
+.ledersokkel p{margin:2px 0}
+.ledersokkel .rolle{font-size:16px;color:#333}
+.ledersokkel .navn{font-size:25px;font-weight:600}
+.ledersokkel a{color:var(--tekst)}
+
+/* ---------- kort forklart ---------- */
+.kf-oversikt{max-width:none!important;margin:24px 0 56px}
+.kf-gruppe{text-align:center;font-size:19px;font-weight:500;margin:28px 0 14px}
+.kf-bokser{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}
+.kf-bokser.bred{grid-template-columns:repeat(3,1fr);gap:16px 28px}
+.kf-boks{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:64px;padding:8px 10px;border:1px solid #111;border-radius:14px;color:var(--tekst);text-decoration:none;font-size:15px;line-height:1.3;background:#fff;transition:background .15s}
+.kf-boks:hover{background:var(--lys);color:var(--tekst)}
+.kf-boks small{font-size:12px;color:#444}
+.kf-bokser.bred .kf-boks{min-height:58px}
+
+/* ---------- publikasjoner ---------- */
+.pub{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:56px;align-items:start;background:#fff;border-radius:18px;box-shadow:0 2px 18px rgba(6,7,27,.08);padding:48px 52px;margin:0 0 32px}
+.pub h2{font-size:26px;font-weight:500;margin:0 0 14px}
+.pub p{font-size:16px;line-height:1.65}
+.pub img{width:100%;margin:0;border-radius:8px;box-shadow:0 4px 20px rgba(6,7,27,.15)}
+.pub-lenker{display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:20px}
+.pub .last{display:inline-flex;align-items:center;gap:8px;color:var(--bla2);font-family:var(--inter);font-weight:500;font-size:15px;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px}
+
 /* ---------- skjema ---------- */
 .skjema{background:var(--lys);border-radius:20px;padding:36px;max-width:640px}
 .skjema.sentrert{margin:0 auto;text-align:left}
@@ -190,6 +222,13 @@ a.kort:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,7,27,.08);
   .helt-kort{grid-template-columns:1fr;padding:32px 24px}
   .helt-bilde{min-height:320px}
   .pofin .ingress br{display:none}
+  .domeneside{grid-template-columns:1fr}
+  .ledersokkel{position:static}
+  .ledersokkel img{margin:0 auto 16px;width:280px;height:350px}
+  .kf-bokser{grid-template-columns:repeat(4,1fr)}
+  .kf-bokser.bred{grid-template-columns:repeat(2,1fr)}
+  .pub{grid-template-columns:1fr;padding:28px}
+  .pub img{max-width:280px}
   .nyheter-rad{grid-template-columns:1fr}
   .bunn .wrap{grid-template-columns:1fr}
 }
@@ -197,5 +236,7 @@ a.kort:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,7,27,.08);
   .wrap{padding:0 16px}
   .seksjon{padding:48px 0}
   .domener{grid-template-columns:1fr}
+  .kf-bokser{grid-template-columns:repeat(2,1fr)}
+  .kf-bokser.bred{grid-template-columns:1fr}
   .skjema{padding:24px}
 }
