@@ -27,7 +27,12 @@ def lag(IMG, WS, en):
         else:
             m = re.search(r'<a href="([^"]+)">', tekst)
             if m: cur['lenke'] = pdflenke(m.group(1)); continue
-            if 'Last ned presentasjonen' in tekst: continue
+            if 'Last ned presentasjonen' in tekst:
+                # disse lenkene lå på et span-element i Framer og kom ikke med i uttrekket
+                ekstra = {'13:00–13:15': 'KDfd2bLUflTKjKbd351w1jPkQBc.pdf', '13:15–13:30': '0ZBgnfxO7yPcY5lGBVujY282cI.pdf', '13:30–13:50': 'vPzxEE3imB3fMmfQIx8TaQ2f4U.pdf',
+                         '14:25–14:45': 'vTOXeurwsY53TaivnWUZDj3Y2Nw.pdf', '14:45–15:05': 'YeB318sYDHSb5lNpmmebiYVMtN0.pdf'}
+                if cur['tid'] in ekstra: cur['lenke'] = pdf[ekstra[cur['tid']]]
+                continue
             if not cur['tittel']: cur['tittel'] = tekst
             else: cur['tekst'].append(tekst)
     # første rad (registrering) har tittel i p
