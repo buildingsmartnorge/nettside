@@ -355,6 +355,11 @@ def generell(framer, h, en):
         return framer_no, tittel, besk, body
     if framer_no == '/pofin': tittel = 'POFIN'
     bred = ''
+    if framer_no == '/om-oss/hvagjorvi':
+        film = ('<h2>What openBIM does for you</h2><p>' + ('A film we made in 2013–14 about what openBIM means in practice.' if en else 'En film vi laget i 2013–14 om hva åpenBIM betyr i praksis.') + '</p>'
+                + f'<div class="video-rad" style="grid-template-columns:1fr">{yt_knapp("2m_IL99WOzQ")}</div>')
+        deler = re.split(r'(?=<h2>(?:Se tidslinjen vår|See our timeline)</h2>)', rest, maxsplit=1)
+        rest = deler[0] + film + (deler[1] if len(deler) > 1 else '')
     if framer_no == '/om-oss/kontakt':
         rest = personkort(rest); bred = ' bred'
     if framer_no == '/fagnettverk/medlemmer':
