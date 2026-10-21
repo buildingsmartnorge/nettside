@@ -8,7 +8,7 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--dm);color:var(--tekst);background:var(--hvit);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;font-optical-sizing:none;font-family:var(--dm);color:var(--tekst);background:var(--hvit);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 img{max-width:100%;height:auto}
 a{color:var(--bla2)}
 a:hover{color:var(--navy)}
@@ -106,10 +106,13 @@ h4{font-size:21px;font-weight:600}
 .rulle:hover .rulle-spor{animation-play-state:paused}
 .rulle-spor img{height:44px;width:auto;max-width:160px;object-fit:contain}
 @keyframes rull{to{transform:translateX(-50%)}}
-.pofin{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.pofin-tittel{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.pofin{text-align:center}
+.pofin-tittel{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
 .pofin-tittel h2{margin:0}
-.pofin-tittel img{height:60px;width:auto}
+.pofin-tittel img{height:62px;width:auto}
+.pofin-last{display:inline-flex;align-items:center;gap:12px;margin:26px 0 22px;color:var(--bla);font-family:var(--inter);font-weight:500;font-size:17px;letter-spacing:-.03em;text-decoration:none}
+.pofin-last:hover{color:var(--bla2)}
+.pofin .ingress{font-size:18px;line-height:1.7;margin:0 auto;max-width:860px}
 .kort-rad{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
 .kort{background:#fff;border:1px solid var(--linje);border-radius:16px;overflow:hidden;text-decoration:none;color:var(--tekst);display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
 a.kort:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,7,27,.08);color:var(--tekst)}
@@ -181,7 +184,7 @@ a.kort:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(6,7,27,.08);
   .topp.mobil li.apen>.under.bred{display:block}
   .helt-kort{grid-template-columns:1fr;padding:32px 24px}
   .helt-bilde{min-height:320px}
-  .pofin{grid-template-columns:1fr}
+  .pofin .ingress br{display:none}
   .nyheter-rad{grid-template-columns:1fr}
   .bunn .wrap{grid-template-columns:1fr}
 }

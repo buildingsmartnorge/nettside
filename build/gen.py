@@ -402,10 +402,9 @@ def forside(h, en):
 <div class="rulle"><div class="rulle-spor" data-wix="logoer"></div></div></div></section>
 
 <section class="seksjon"><div class="wrap pofin">
-<div><div class="pofin-tittel"><h2>{'BIM made easy with' if E else 'BIM gjort enkelt med'}</h2><img src="{POFINSTOR}" alt="POFIN"></div></div>
-<div><p class="ingress">{'POFIN is buildingSMART Norway’s national framework for openBIM. An industry standard that makes it easier to set the right requirements, agree on information deliveries and follow up on deliveries in both projects and management.' if E else 'POFIN er buildingSMART Norge sitt nasjonale rammeverk for åpenBIM. En bransjestandard som gjør det enklere å stille riktige krav, avtale informasjonsleveranser og følge opp leveranser i både prosjekt og forvaltning.'}</p>
-<p style="display:flex;gap:20px;flex-wrap:wrap;align-items:center"><a class="knapp mork" href="{POFIN_ZIP}" target="_blank" rel="noopener">{'Download POFIN here' if E else 'Last ned POFIN her'}<span class="pil">↓</span></a>
-<a class="merlenke" href="{url('/pofin', E)}">{'More about POFIN' if E else 'Mer om POFIN'} →</a></p></div>
+<div class="pofin-tittel"><h2>{'BIM made easy with' if E else 'BIM gjort enkelt med'}</h2><img src="{POFINSTOR}" alt="POFIN"></div>
+<a class="pofin-last" href="{POFIN_ZIP}" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M4 19h16"/></svg>{'Download POFIN here' if E else 'Last ned POFIN her'}</a>
+<p class="ingress">{"POFIN is buildingSMART Norway's national framework for openBIM.<br>An industry standard that makes it easier to set the right requirements, agree on information deliveries<br>and follow up on deliveries in both projects and management" if E else 'POFIN er buildingSMART Norge sitt nasjonale rammeverk for åpenBIM.<br>En bransjestandard som gjør det enklere å stille riktige krav, avtale informasjonsleveranser<br>og følge opp leveranser i både prosjekt og forvaltning'}</p>
 </div></section>
 
 <section class="seksjon lys"><div class="wrap">
