@@ -248,7 +248,7 @@ def innholdsside(framer, h, en):
 def mailmojo_skjema(tag, tittel, en, velg=False):
     felt = ''
     if velg:
-        valg = [('alle', 'Alle' if not en else 'All'), ('produktdomene', 'Produktdomene'), ('infradomene', 'Infradomene'), ('teknisk domene', 'Teknisk domene'),
+        valg = [('', 'Alle' if not en else 'All'), ('produktdomene', 'Produktdomene'), ('infradomene', 'Infradomene'), ('teknisk domene', 'Teknisk domene'),
                 ('juridisk domene', 'Juridisk domene'), ('bærekraftdomene', 'Bærekraftdomene'), ('byggherre og eierdomene', 'Byggherre og eierdomene'), ('endringsledelsesdomene', 'Endringsledelsesdomene')]
         felt = (f'<label for="mm-tag">{"Domain – which domain do you want information about?" if en else "Domene – hvilket domene ønsker du informasjon om?"}</label>'
                 '<select id="mm-tag" name="tagsadditional">' + ''.join(f'<option value="{v}">{t}</option>' for v, t in valg) + '</select>')

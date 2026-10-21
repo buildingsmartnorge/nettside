@@ -244,21 +244,46 @@
     }).catch(function () { if (lederEl) lederEl.remove(); });
   }
 
-  // ---------- arrangementer ----------
+  // ---------- arrangementer (hentes direkte fra Checkin) ----------
+  var CHECKIN_KUNDE = 12624;
+  var CHECKIN_SPORRING = "query allEventRegistrations($customerId: Int!, $offset: Int, $length: Int, $reportFilters: [EventRegistrationReportFilterInput!]) {" +
+    " allEventRegistrations(customerId: $customerId, offset: $offset, length: $length, reportFilters: $reportFilters) {" +
+    " records data { id name imageUrl startsAt endsAt topicEvent { topic { name } } } } }";
+  var checkinLover = null;
+  function checkin() {
+    if (checkinLover) return checkinLover;
+    var na = (Date.now() / 1000).toFixed(2);
+    checkinLover = fetch("https://api.checkin.no/graphql", {
+      method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: CHECKIN_SPORRING, operationName: "allEventRegistrations", variables: { customerId: CHECKIN_KUNDE, offset: 0, length: 100,
+        reportFilters: [{ rule: "AND", conditions: [{ rule: "AND", field: "EVENT_REGISTRATION_CLOSES_AT", operator: "GREATER_THAN_OR_EQUAL", value: na }], orderBy: [{ field: "EVENT_STARTS_AT", direction: "ASC" }] }] } })
+    }).then(function (r) { if (!r.ok) throw new Error("checkin " + r.status); return r.json(); })
+      .then(function (j) { return ((j.data && j.data.allEventRegistrations && j.data.allEventRegistrations.data) || []).slice().sort(function (a, b) { return new Date(a.startsAt) - new Date(b.startsAt); }); });
+    return checkinLover;
+  }
+  // hvilke Checkin-temaer som hører til hvert domene (sammenlignes med små bokstaver)
+  var DOMENE_ORD = { "produktdomene": "produkt", "teknisk-domene": "teknisk", "infradomene": "infra", "baerekraft-domene": "bærekraft",
+    "juridisk-domene": "juridisk", "endringsledelsesdomene": "endringsledelse", "byggherre-og-eierdomene": "byggherre" };
+  function klokke(d) { return d.toLocaleTimeString("nb-NO", { hour: "2-digit", minute: "2-digit", timeZone: "Europe/Oslo" }); }
   function arrkort(a) {
-    var tittel = EN && a.tittelEn ? a.tittelEn : a.tittel;
-    var href = a.pameldingslenke || PREFIKS + "/arrangementer.html";
-    var ekstern = /^https?:/.test(href);
-    return '<a class="kort" href="' + esc(href) + '"' + (ekstern ? ' target="_blank" rel="noopener"' : "") + ">" +
-      (a.bilde ? '<img loading="lazy" src="' + bilde(a.bilde, 800, 450) + '" alt="">' : "") +
-      '<div class="tekst"><h3>' + esc(tittel) + '</h3><p class="dato">' + dato(a.dato) + (a.tid ? " · " + esc(a.tid) : "") + "</p></div></a>";
+    var start = new Date(a.startsAt), slutt = a.endsAt ? new Date(a.endsAt) : null;
+    var bildeUrl = a.imageUrl ? (/^https?:/.test(a.imageUrl) ? a.imageUrl : "https://app.checkin.no" + a.imageUrl) : "";
+    return '<a class="kort" href="https://event.checkin.no/' + a.id + '" target="_blank" rel="noopener">' +
+      (bildeUrl ? '<img loading="lazy" src="' + esc(bildeUrl) + '" alt="">' : "") +
+      '<div class="tekst"><h3>' + esc(a.name) + '</h3><p class="dato">' + dato(a.startsAt) + " · " + klokke(start) + (slutt ? "–" + klokke(slutt) : "") + "</p></div></a>";
   }
   document.querySelectorAll("[data-wix=arrangementer]").forEach(function (el) {
-    var domene = el.getAttribute("data-domene");
-    var idag = new Date(); idag.setHours(0, 0, 0, 0);
-    var filter = { dato: { $gte: { $date: idag.toISOString() } } };
-    if (domene) filter.domene = { $eq: domene }; else filter.visPaForsiden = { $eq: true };
-    samling("Arrangementer", [{ fieldName: "dato", order: "ASC" }], filter, +el.getAttribute("data-antall") || 6).then(function (rader) {
+    var domene = el.getAttribute("data-domene"), antall = +el.getAttribute("data-antall") || 6;
+    checkin().then(function (alle) {
+      var rader = alle;
+      if (domene && DOMENE_ORD[domene]) {
+        var ord = DOMENE_ORD[domene];
+        rader = alle.filter(function (a) {
+          var tema = (a.topicEvent || []).map(function (t) { return (t.topic && t.topic.name || "").toLowerCase(); }).join(" ") + " " + String(a.name).toLowerCase();
+          return tema.indexOf(ord) >= 0;
+        });
+      }
+      rader = rader.slice(0, antall);
       el.innerHTML = rader.length ? rader.map(arrkort).join("") : '<p class="laster">' + T.ingen + "</p>";
     }).catch(function (e) { feil(el, e); });
   });
