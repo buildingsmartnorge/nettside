@@ -274,6 +274,7 @@ def domeneside(framer, h, en):
     # fjern Framer-lederkortet (bilde + rolle + navn + e-post/LinkedIn) og "Kommende møter"-delen
     rest = re.split(r'<h2>(Kommende møter|Upcoming meetings|Upcoming events)</h2>', rest)[0]
     rest = re.sub(r'<img loading="lazy" src="[^"]+" alt="">(<p>[^<]*</p>){1,3}(<a [^>]*><p>Linkedin</p></a>|<p>Linkedin</p>)?\s*$', '', rest)
+    rest = re.sub(r'<h2>(Passer spesielt|Especially suitable)[^<]*</h2>(<p>[^<.]{1,60}</p>)*', '', rest)
     tag, navn = DOMENE_TAG[slug]
     body = f'''<section class="wrap sidetopp"><h1>{html.escape(tittel)}</h1>
 <div class="domenetags" data-wix="domenetags" data-domene="{slug}"></div></section>
