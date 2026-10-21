@@ -18,6 +18,7 @@ OG = WS + IMG['1dx4XoztHb4wpflcqCuw4j72t8.png']
 POFIN_ZIP = 'https://buildingsmartnorge.box.com/s/i4ew2sp5z1vcgkatkut4s86gcxmlfk1u'
 # Avpublisert etter ønske (innholdet ligger fortsatt i kilde/ og kan tas inn igjen ved å fjerne linjene her)
 SKIP = {'/standarder/internasjonale-standarder', '/en/standards/international-standards',
+        '/om-oss/baerekraftsprofil', '/en/om-oss/baerekraftsprofil',
         '/om-oss/hvagjorvi2', '/en/om-oss/hvagjorvi2', '/en/home-testing', '/home-testing'}
 
 # ---------- stier ----------
@@ -66,7 +67,6 @@ NAV = [
         ('Ta kontakt', 'Contact us', '/om-oss/kontakt'), ('Hva gjør vi?', 'What do we do?', '/om-oss/hvagjorvi'),
         ('Medlemskap', 'Membership', '/om-oss/medlemskap'), ('Vårt økosystem', 'Our ecosystem', '/om-oss/okosystemet'),
         ('Vedtekter', 'Statutes', '/om-oss/vedtekter'), ('Strategi og årsmøte', 'Strategy and annual meeting', '/om-oss/strategi'),
-        ('Bærekraftsprofil', 'Sustainability profile', '/om-oss/baerekraftsprofil'),
         ('Personvernerklæring', 'Privacy policy', '/om-oss/personvernserklaering')]),
     ('Standarder', 'Standards', [
         ('POFIN', 'POFIN', '/pofin'), ('Publikasjoner', 'Publications', '/standarder/publikasjoner-og-veiledninger'),
@@ -347,6 +347,58 @@ def publikasjoner(rest, en):
         kort.append(f'<article class="pub"><div><h2>{tittel}</h2><p>{tekst}</p><div class="pub-lenker">{ll}</div></div><img loading="lazy" src="{bilde}" alt="{html.escape(re.sub("<[^>]+>", "", tittel))}"></article>')
     return intro + ''.join(kort)
 
+
+def vedtekter(rest):
+    """Nummererte punkter med hengende innrykk; tankestrek-lister rykkes inn under punktet."""
+    deler = re.findall(r'<p>(.*?)</p>|(<(?:h\d|ul|ol)[^>]*>.*?</(?:h\d|ul|ol)>)', rest, re.S)
+    ut, pkt, liste, under = [], None, [], False
+    def lukk_liste():
+        nonlocal liste
+        if liste:
+            html_ = '<ul class="vliste">'
+            for tekst, nivaa in liste:
+                html_ += f'<li class="n{nivaa}">{tekst}</li>'
+            ut.append(html_ + '</ul>'); liste = []
+    def lukk_pkt():
+        nonlocal pkt
+        if pkt: ut.append(f'<div class="vpkt"><span>{pkt[0]}</span><div>{pkt[1]}</div></div>'); pkt = None
+    for p, annet in deler:
+        if annet: lukk_pkt(); lukk_liste(); ut.append(annet); continue
+        rå = p
+        t = rå.strip()
+        m = re.match(r'^(\d+(?:\.\d+)+\.?)\s+(.*)$', html.unescape(t) if False else t, re.S)
+        if t.startswith('- ') or t.startswith('-&nbsp;'):
+            lukk_pkt()
+            tekst = t[2:].strip()
+            nivaa = 2 if under else 1
+            liste.append((tekst, nivaa))
+            if tekst.rstrip(':').lower().startswith('følgende valg'): under = True
+            continue
+        under = False
+        if rå.startswith(' ') and pkt:
+            pkt[1] += ' ' + t; continue
+        if m and not t.startswith('<strong>'):
+            lukk_pkt(); lukk_liste(); pkt = [m.group(1), m.group(2)]; continue
+        lukk_pkt(); lukk_liste()
+        ut.append(f'<p>{rå}</p>')
+    lukk_pkt(); lukk_liste()
+    return ''.join(ut)
+
+def personvern(rest):
+    rest = re.sub(r'<p>(\d+\.\d+ [^<]{2,90})</p>', r'<h3 class="pv">\1</h3>', rest)
+    rest = re.sub(r'<p>([A-ZÆØÅ][^<.]{2,40}:)</p>', r'<p><strong>\1</strong></p>', rest)
+    return rest
+
+def medlemskap(rest, en):
+    ikoner = ['<path d="M4 20h16M6 20V9l6-4 6 4v11M10 20v-5h4v5"/>', '<path d="M3 20h18M5 20V8h6v12M13 20V4h6v16M8 11h0M8 14h0M16 7h0M16 10h0M16 13h0"/>',
+              '<path d="M3 20h18M4 20V6h7v14M11 20V10h9v10M7 9h1M7 12h1M7 15h1M14 13h1M17 13h1M14 16h1M17 16h1"/>', '<circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c2.5 2.2 2.5 13.8 0 16M12 4c-2.5 2.2-2.5 13.8 0 16"/>']
+    m = re.match(r'(<p>.*?</p>)((?:<p>[^<]{2,20}</p><p>.*?</p>){4})(.*)$', rest, re.S)
+    if not m: return rest
+    intro, kortdel, resten = m.groups()
+    par = re.findall(r'<p>([^<]{2,20})</p><p>(.*?)</p>', kortdel)
+    kort = ''.join(f'<div class="mkort"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">{ikoner[i % 4]}</svg><h3>{t}</h3><p>{b}</p></div>' for i, (t, b) in enumerate(par))
+    return f'<div class="mintro">{intro}</div><div class="mkortrad">{kort}</div>{resten}'
+
 def generell(framer, h, en):
     if no_sti(framer) == '/standarder/kort-forklart': h = kf_bokser(h)
     framer_no, tittel, besk, rest = innholdsside(framer, h, en)
@@ -355,6 +407,9 @@ def generell(framer, h, en):
         return framer_no, tittel, besk, body
     if framer_no == '/pofin': tittel = 'POFIN'
     bred = ''
+    if framer_no == '/om-oss/vedtekter': rest = vedtekter(rest)
+    if framer_no == '/om-oss/personvernserklaering': rest = personvern(rest)
+    if framer_no == '/om-oss/medlemskap': rest = medlemskap(rest, en); bred = ' bred'
     if framer_no == '/om-oss/hvagjorvi':
         # filmen lå nederst på siden i Framer (som video), her fra YouTube
         rest += f'<div class="video-rad" style="grid-template-columns:1fr;margin-top:48px">{yt_knapp("2m_IL99WOzQ")}</div>'
