@@ -81,6 +81,7 @@ h4{font-size:21px;font-weight:600}
 .innhold iframe.hoy{height:900px}
 .innhold iframe.middels{height:640px}
 .innhold iframe.podkast{height:175px;background:transparent}
+.innhold>iframe.bred-ramme{max-width:none;background:transparent}
 .innhold table{border-collapse:collapse;width:100%;margin:1em 0}
 .innhold td,.innhold th{border:1px solid var(--linje);padding:8px 10px;text-align:left;vertical-align:top}
 .innhold blockquote{border-left:3px solid var(--bla);margin:1em 0;padding:.2em 1em;color:#333}

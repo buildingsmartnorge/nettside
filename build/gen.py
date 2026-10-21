@@ -210,11 +210,10 @@ def rens(h, en):
     # iframes
     def ifr(m):
         s = m.group(1)
-        kl = 'hoy'
-        if 'podcasts.apple.com' in s: kl = 'podkast'
-        elif 'bluetail' in s: kl = 'hoy'
-        elif '30years' in s: kl = 'middels'
-        return f'<iframe src="{s}" class="{kl}" loading="lazy" title="Innebygd innhold" allow="clipboard-write; fullscreen"></iframe>'
+        hoyder = {'podcasts.apple.com': 175, 'Kort-forklart': 680, 'kartlegg.buildingsmart.no': 770, 'bluetail': 2480, '30years': 641}
+        hoyde = next((v for k, v in hoyder.items() if k in s), 700)
+        kl = 'podkast' if 'podcasts.apple.com' in s else 'bred-ramme'
+        return f'<iframe src="{s}" class="{kl}" style="height:{hoyde}px" loading="lazy" title="Innebygd innhold" allow="clipboard-write; fullscreen"></iframe>'
     h = re.sub(r'<iframe src="([^"]+)"></iframe>', ifr, h)
     # ankere fra Framer (kort-forklart)
     h = re.sub(r'<a id="([^"]+)"></a>', lambda m: f'<span class="anker" id="{m.group(1)}"></span>' if not re.fullmatch(r'[A-Za-z0-9_]{9}|services(-\d)?', m.group(1)) else '', h)
