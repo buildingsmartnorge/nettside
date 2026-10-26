@@ -161,7 +161,10 @@ def side(tittel, beskrivelse, body, en, framer_no, ekstra_head=''):
 <link rel="canonical" href="{kanon}">
 <link rel="alternate" hreflang="no" href="https://buildingsmart.no{url(framer_no, False)}">
 <link rel="alternate" hreflang="en" href="https://buildingsmart.no{url(framer_no, True)}">
-<link rel="icon" href="https://static.wixstatic.com/media/fab2f5_3e92e232dfee410a8e5461b650eab47a~mv2.png/v1/fit/w_64,h_64/ikon.png">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/stil.css?v={VERSJON}">
