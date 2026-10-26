@@ -161,8 +161,7 @@ def side(tittel, beskrivelse, body, en, framer_no, ekstra_head=''):
 <link rel="canonical" href="{kanon}">
 <link rel="alternate" hreflang="no" href="https://buildingsmart.no{url(framer_no, False)}">
 <link rel="alternate" hreflang="en" href="https://buildingsmart.no{url(framer_no, True)}">
-<link rel="icon" href="/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png?v=2">
 <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
