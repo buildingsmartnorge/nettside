@@ -217,6 +217,8 @@ def rens(h, en):
         s = m.group(1).replace('thorkildrs.github.io', 'buildingsmartnorge.github.io')
         if en and re.search(r'github\.io/(Kort-forklart|30years)/?$', s):
             s = s.rstrip('/') + '/en/'
+        if en and 'kartlegg.buildingsmart.no' in s and 'lang=en' not in s:
+            s = s.rstrip('/') + '/?lang=en'
         hoyder = {'podcasts.apple.com': 175, 'Kort-forklart': 680, 'kartlegg.buildingsmart.no': 770, 'bluetail': 2480, '30years': 641}
         hoyde = next((v for k, v in hoyder.items() if k in s), 700)
         kl = 'podkast' if 'podcasts.apple.com' in s else 'bred-ramme'
