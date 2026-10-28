@@ -214,7 +214,9 @@ def rens(h, en):
     h = re.sub(r'<img loading="lazy" src="https://i\.ytimg\.com/vi(?:_webp)?/([\w-]{11})/[^"]+" alt="[^"]*">', lambda m: yt_knapp(m.group(1)), h)
     # iframes
     def ifr(m):
-        s = m.group(1)
+        s = m.group(1).replace('thorkildrs.github.io', 'buildingsmartnorge.github.io')
+        if en and re.search(r'github\.io/(Kort-forklart|30years)/?$', s):
+            s = s.rstrip('/') + '/en/'
         hoyder = {'podcasts.apple.com': 175, 'Kort-forklart': 680, 'kartlegg.buildingsmart.no': 770, 'bluetail': 2480, '30years': 641}
         hoyde = next((v for k, v in hoyder.items() if k in s), 700)
         kl = 'podkast' if 'podcasts.apple.com' in s else 'bred-ramme'
