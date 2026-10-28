@@ -60,7 +60,7 @@ def fil(framer_no, en=False):
 def url(framer_no, en=False):
     f = fil(framer_no, en)
     if f == 'index.html': return '/'
-    if f == 'en/index.html': return '/en/'
+    if f == 'en/index.html': return '/en/index.html'
     return '/' + f
 
 # ---------- navigasjon ----------
