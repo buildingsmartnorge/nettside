@@ -20,6 +20,7 @@ Kildekoden til nettsiden til buildingSMART Norge. Siden driftes på Wix (Wix Hea
 - **Domener**: CMS-samlingen «Domener». Her ligger kort beskrivelse, «Passer for», domeneleder, bilde og LinkedIn.
 - **Arrangementer**: Opprettes i Checkin. De dukker automatisk opp i kalenderen, på forsiden og på riktig domeneside (ut fra temaet i Checkin, f.eks. «Teknisk domene»).
 - **Medlemmer**: CMS-samlingene «Medlemmer (navneliste)» og «Medlemslogoer (forsiden)».
+- **Tidligere åpne møter (forsiden)**: CMS-samlingen «Møteopptak». Lim inn YouTube-lenken, skriv tittel og møtedato. Forsiden viser automatisk de seks nyeste (etter dato). Kryss av «Skjul på forsiden» for å ta en video bort uten å slette den.
 
 **Faste sider** (Om oss, Standarder, domenetekster og lignende) endres i koden. Det gjøres enklest ved å be Claude om endringen. Claude oppdaterer filene her og publiserer på nytt.
 

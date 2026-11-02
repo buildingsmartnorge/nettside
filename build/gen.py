@@ -549,7 +549,7 @@ def forside(h, en):
 <section class="seksjon lys"><div class="wrap">
 <p class="overtittel">{"What's on?" if E else 'Hva skjer?'}</p>
 <h2>{'Previous open meetings' if E else 'Tidligere åpne møter'}</h2>
-<div class="video-rad">{''.join(yt_knapp(v) for v in sett)}</div>
+<div class="video-rad" data-wix="videoer" data-antall="6">{''.join(yt_knapp(v) for v in sett)}</div>
 </div></section>'''
     return body
 

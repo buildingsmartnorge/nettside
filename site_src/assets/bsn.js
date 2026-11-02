@@ -244,6 +244,20 @@
     }).catch(function () { if (lederEl) lederEl.remove(); });
   }
 
+  // ---------- møteopptak (forsiden; redigeres i CMS-samlingen Møteopptak) ----------
+  document.querySelectorAll("[data-wix=videoer]").forEach(function (el) {
+    var antall = +el.getAttribute("data-antall") || 6;
+    samling("Moteopptak", [{ fieldName: "dato", order: "DESC" }, { fieldName: "_createdDate", order: "DESC" }], null, 100).then(function (rader) {
+      var html = rader.filter(function (r) { return !r.skjul; }).map(function (r) {
+        var m = String(r.youtubeLenke || "").match(/(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([\w-]{11})/);
+        return m ? { id: m[1], tittel: r.tittel } : null;
+      }).filter(Boolean).slice(0, antall).map(function (v) {
+        return '<button class="yt" data-id="' + v.id + '" aria-label="' + (EN ? "Play video: " : "Spill av video: ") + esc(v.tittel) + '"><img loading="lazy" src="https://i.ytimg.com/vi/' + v.id + '/hqdefault.jpg" alt=""></button>';
+      }).join("");
+      if (html) { el.innerHTML = html; aktiverYt(el); }
+    }).catch(function (e) { if (window.console) console.warn(e); });
+  });
+
   // ---------- arrangementer (hentes direkte fra Checkin) ----------
   var CHECKIN_KUNDE = 12624;
   var CHECKIN_SPORRING = "query allEventRegistrations($customerId: Int!, $offset: Int, $length: Int, $reportFilters: [EventRegistrationReportFilterInput!]) {" +
